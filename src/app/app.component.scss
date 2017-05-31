@@ -1,0 +1,28 @@
+.gdg-container {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 16px 0;
+  & > div {
+    max-width: 100vw;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gdg-container {
+    top: 56px;
+  }
+}
+
+.photo-wrapper {
+  flex-grow: 1;
+  flex: 1;
+}
+
+button {
+  width: 100%;
+  // max-width: 600px;
+}
