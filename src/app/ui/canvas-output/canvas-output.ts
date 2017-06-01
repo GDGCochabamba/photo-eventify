@@ -47,7 +47,7 @@ export class CanvasOutput {
       if ( !this.loaded ) {
         return false;
       }
-      this.photo = <HTMLImageElement>image.cloneNode();
+      this.photo = image;
       const photoSize = Math.min(this.photo.width, this.photo.height);
       const x = (this.photo.width - photoSize) / 2;
       const y = (this.photo.height - photoSize) / 2;
