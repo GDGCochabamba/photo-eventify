@@ -29,7 +29,6 @@ export class PhotoGrabberComponent implements OnInit {
   image: HTMLImageElement;
   context: CanvasRenderingContext2D;
   error = false;
-
   canvasSize = 700;
 
   constructor(
@@ -60,13 +59,12 @@ export class PhotoGrabberComponent implements OnInit {
     }
   }
 
-  saveImage(button: HTMLLinkElement) {
-    const link = document.createElement('a');
-    link.href = this.canvasRef.nativeElement.toDataURL();
+  saveImage(button: any) {
+    const link = button._getHostElement();
+    link.href = this.canvasRef.nativeElement.toDataURL();;
     link.target = 'about:blank';
     link.download = 'io-photo';
     link.type = 'image/png';
-    link.click();
   }
 
   private readFile(file): Promise<string> {
