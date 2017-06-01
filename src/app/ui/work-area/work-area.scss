@@ -1,0 +1,33 @@
+.gdg-work-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+
+  & > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .action-area {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+
+    a {
+      flex-grow: 1;
+    }
+
+    & > *:not(:first-child) {
+      margin-left: 16px;
+    }
+
+    &.initial {
+      .save-button {
+        flex-grow: 0;
+        margin-right: -104px;
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+$color-primary: #00bcd4;
+$color-primary-foreground: #fff;
+$color-secondary: #7c4dff;
+$color-secondary-foreground: #fff;
+$toolbar-height: 56px;
+$base-margin: 16px;
+
+body {
+  font-family: roboto, helvetica;
+  margin: 0;
+}
+@import 'app/ui/**/*.scss';
