@@ -62,6 +62,7 @@ export class WorkArea {
   async fileSelected() {
     this.image = new Image();
     this.image.src = await readFile(this.fileInput.files[0]);
+    this.fileInput.value = '';
     this.image.addEventListener('load', this.validateImage.bind(this));
   }
 
