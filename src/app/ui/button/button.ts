@@ -19,6 +19,7 @@ export class Button {
     }
 
     setdisabled(state: boolean){
+      this.disabled = state;
       if(state){
         this.button.classList.add('disabled');
       }
