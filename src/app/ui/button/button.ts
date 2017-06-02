@@ -8,19 +8,15 @@ export class Button {
     // helper
     msFixed = false;
     canvas: CanvasOutput;
-
-
+    disabled: boolean;
     constructor(text: string) {
         const button = document.createElement('a');
         button.text = text;
         button.classList.add('gdg-raised-button');
         button.classList.add('disabled');
+        this.disabled = true;
         this.button = button;
         this.elem = button;
-    }
-
-    ready():void{
-      this.button.classList.remove('disabled');
     }
 
     addEventListener(event: 'click', cb: EventListenerOrEventListenerObject) {
