@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "5.11"
+
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: "S/Tryi8MT1kGvyW1D9vDv2FXuN2p6VE4YxCe3Wd0a6Kg5OTG6yRZYdYMIQEanoXpwcrb9sb3NQm+LzeeykyAZ9rqFedPMit3/wSE417JrV7uzUxOlxTJ+4Vx0fsyEiR5F/WpId0/RfIBajRW4o9mJva4Z6ptPhDbYVWhOaaeBAVZWs1U60MvBO99V8bNZTHU+u/8A58FCI+rqDL6Kc8jovnUD81lAdnaD3XuurcnIkpd3UCwykWk0itvTTSXZuRMWKkBm86AMntobSnKI3LFSr2PLt1laADhV0Jxm936Lo+Qyxb1qAOs2IJnJ3mfidgmjl1WISuWa9YsVzky7cHqMCo0xXyRXhXy58diWKpBI06fTJ30eUQ3JaUNQFyo5Lh3NYBtFcLuxvrj12lgeiziPmf5FL0LRXKX08RZboT6FqlhbSDBdDW+g6XRkvt50hFEcLUpXkuw7FwoQ5Q3JsmXxKhvQ9YAaVjXgOiSODDFiJTBYlsc2Iz7M3khuL1Sr3R7Jx/C5TIwUY5YZ6og36DIlZUpxXihAHM6ac3OzHbskZktlvWLOIW3GCFeaAYWA6iURIf73sIgpmqfM5Vi+t4IBQQ/zuR4ue4zAl13zq1eh1paM14TG6vexHr525s+bLmaXTf62VAJGHy6FUDU7J/M5jqj2Ctc/R+mf99FrABfzUI="
+  on:
+    branch: master
