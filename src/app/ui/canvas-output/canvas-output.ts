@@ -61,6 +61,8 @@ export class CanvasOutput {
         0, 0, this.frame.width, this.frame.height,
         0, 0, this.size, this.size
       );
+      this._url = undefined;
+      this._blob = undefined;
 
       return true;
     }
