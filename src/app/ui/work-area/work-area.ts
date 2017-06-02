@@ -25,12 +25,11 @@ export class WorkArea {
   constructor() {
     this.elem = document.createElement('div');
     this.elem.classList.add('gdg-work-area');
-
+    
     // canvas
     this.canvas = new CanvasOutput(800);
     this.canvas.loadFrameByUrl(this.frame).then(()=>{
-      this.askFileButton.disabled = false;
-      this.askFileButton.button.classList.remove('disabled');
+      this.askFileButton.setdisabled(false);
     })
 
     // File input
@@ -56,6 +55,8 @@ export class WorkArea {
     // build work-area
     this.elem.appendChild(this.canvas.elem);
     this.elem.appendChild(this.actionArea);
+    //set button to charge on disabled
+    this.askFileButton.setdisabled(true);
   }
 
   openFile() {
