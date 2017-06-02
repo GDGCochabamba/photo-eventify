@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "5.11"
+
+deploy:
+  provider: firebase
+  token:
+    secure: "1/_7YU3aQmdZqO5AzKPekg90aK3ABkG-RceTM2_4MXkNEzP8tKzyxUO6DkBbDWn9B5"
+  project: "photo-eventify"
+  on:
+    branch: master
