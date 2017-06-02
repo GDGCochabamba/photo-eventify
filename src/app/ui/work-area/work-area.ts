@@ -29,7 +29,8 @@ export class WorkArea {
     // canvas
     this.canvas = new CanvasOutput(800);
     this.canvas.loadFrameByUrl(this.frame).then(()=>{
-      this.askFileButton.ready();
+      this.askFileButton.disabled = false;
+      this.askFileButton.button.classList.remove('disabled');
     })
 
     // File input
