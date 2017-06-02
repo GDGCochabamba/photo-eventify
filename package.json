@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "postinstall": "if [ $BUILD_CODE ]; then yarn run build; fi"
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.16",
