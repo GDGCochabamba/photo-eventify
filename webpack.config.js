@@ -30,15 +30,9 @@ module.exports = {
           loader: "ts-loader"
         }]
       },
-      { // css
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader?importLoaders=1',
-        }),
-      },
       { // scss
         test: /\.(scss)$/,
-        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader', 'import-glob-loader'])
+        use: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader', 'import-glob-loader'])
       }
     ],
   },
