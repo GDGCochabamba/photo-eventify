@@ -29,7 +29,7 @@ export class WorkArea {
     // canvas
     this.canvas = new CanvasOutput(800);
     this.canvas.loadFrameByUrl(this.frame).then(()=>{
-      this.askFileButton.setdisabled(false);
+      this.askFileButton.disabled = false;
     })
 
     // File input
@@ -56,7 +56,7 @@ export class WorkArea {
     this.elem.appendChild(this.canvas.elem);
     this.elem.appendChild(this.actionArea);
     //set button to charge on disabled
-    this.askFileButton.setdisabled(true);
+    this.askFileButton.disabled = true;
   }
 
   openFile() {
