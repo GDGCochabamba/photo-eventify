@@ -29,3 +29,7 @@
     padding: 0 16px;
     border-radius: 2px;
 }
+.disabled{
+    pointer-events: none;
+    background-color: $disabled-color;
+}
