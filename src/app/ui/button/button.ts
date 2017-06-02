@@ -13,10 +13,18 @@ export class Button {
         const button = document.createElement('a');
         button.text = text;
         button.classList.add('gdg-raised-button');
-        button.classList.add('disabled');
         this.disabled = true;
         this.button = button;
         this.elem = button;
+    }
+
+    setdisabled(state: boolean){
+      if(state){
+        this.button.classList.add('disabled');
+      }
+      else{
+        this.button.classList.remove('disabled');
+      }
     }
 
     addEventListener(event: 'click', cb: EventListenerOrEventListenerObject) {
