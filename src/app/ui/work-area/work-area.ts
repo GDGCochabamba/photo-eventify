@@ -9,8 +9,8 @@ export class WorkArea {
   // config
   minWidth = 200;
   minHeight = 200;
-  frame = '/assets/frame-IO17-Cochabamba.png';
-  filename = 'io-frame.png';
+  frame = '/assets/startup-weekend-consciencia-verde-2017.png';
+  filename = 'startup-weekend-frame.png';
 
   // UI
   private canvas: CanvasOutput;
@@ -25,7 +25,7 @@ export class WorkArea {
   constructor() {
     this.elem = document.createElement('div');
     this.elem.classList.add('gdg-work-area');
-    
+
     // canvas
     this.canvas = new CanvasOutput(800);
     this.canvas.loadFrameByUrl(this.frame).then(()=>{

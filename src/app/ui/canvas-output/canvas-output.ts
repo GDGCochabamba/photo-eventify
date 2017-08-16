@@ -71,7 +71,7 @@ export class CanvasOutput {
       return new Promise((fulfill, reject) => {
         this.loaded = false;
         this.frame = new Image();
-        this.frame.src = '/assets/frame-IO17-Cochabamba.png';
+        this.frame.src = '/assets/startup-weekend-consciencia-verde-2017.png';
         this.frame.addEventListener('load', () => {
           this.loaded = true;
           fulfill();
