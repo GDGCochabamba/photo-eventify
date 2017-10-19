@@ -19,6 +19,7 @@
     "import-glob-loader": "^1.1.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
+    "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.5",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.4",

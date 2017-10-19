@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/js",
+    "outDir": "../dist/js",
     "baseUrl": "",
     "sourceMap": true,
     "declaration": false,

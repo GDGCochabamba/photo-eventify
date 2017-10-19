@@ -9,7 +9,7 @@ export class WorkArea {
   // config
   minWidth = 200;
   minHeight = 200;
-  frame = '/assets/startup-weekend-consciencia-verde-2017.png';
+  frame = '/assets/consciencia-verde/startup-weekend-consciencia-verde-2017.png';
   filename = 'startup-weekend-frame.png';
 
   // UI
