@@ -9,14 +9,20 @@ export class WorkArea {
   // config
   minWidth = 200;
   minHeight = 200;
-  frame = '/assets/consciencia-verde/startup-weekend-consciencia-verde-2017.png';
+  frames = [
+    '/assets/dia-mujer-boliviana/Artboard 3-8.png',
+    '/assets/dia-mujer-boliviana/Artboard 4-8.png',
+  ];
   filename = 'startup-weekend-frame.png';
 
   // UI
   private canvas: CanvasOutput;
   private askFileButton: Button;
   private saveFileButton: Button;
+  private changeFrameButton: Button;
+
   private actionArea: HTMLDivElement;
+
 
   // helper
   fileInput: HTMLInputElement;
@@ -28,7 +34,9 @@ export class WorkArea {
 
     // canvas
     this.canvas = new CanvasOutput(800);
-    this.canvas.loadFrameByUrl(this.frame).then(()=>{
+    Promise.all([
+      this.frames.map(frame => this.canvas.loadFrameByUrl(frame))
+    ]).then(()=>{
       this.askFileButton.disabled = false;
     })
 
@@ -46,11 +54,19 @@ export class WorkArea {
 
     this.askFileButton = new Button('Selecciona una foto');
     this.saveFileButton = new Button('Guardar');
+    this.changeFrameButton = new Button('Cambiar frame');
     this.saveFileButton.elem.classList.add('save-button');
+    this.changeFrameButton.elem.classList.add('frame-button');
     this.actionArea.appendChild(this.askFileButton.elem);
     this.actionArea.appendChild(this.saveFileButton.elem);
+    this.actionArea.appendChild(this.changeFrameButton.elem);
+
 
     this.askFileButton.addEventListener('click', this.openFile.bind(this));
+    this.changeFrameButton.addEventListener('click', () => {
+      this.canvas.nextFrame()
+      this.validateImage()
+    })
 
     // build work-area
     this.elem.appendChild(this.canvas.elem);

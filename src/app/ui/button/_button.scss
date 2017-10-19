@@ -25,6 +25,7 @@
     text-align: center;
     margin: 0;
     min-width: 88px;
+    max-height: 36px;
     line-height: 36px;
     padding: 0 16px;
     border-radius: 2px;
@@ -32,4 +33,10 @@
 .disabled{
     pointer-events: none;
     background-color: $disabled-color;
+}
+
+@media screen and (orientation:landscape) {
+  .gdg-raised-button {
+    width: 100%;
+  }
 }

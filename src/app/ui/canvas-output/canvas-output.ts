@@ -30,8 +30,9 @@ export class CanvasOutput {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private photo: HTMLImageElement;
-    private frame: HTMLImageElement;
+    private frame: HTMLImageElement[];
     private loaded = true;
+    private selected: number;
 
     constructor(
         private size: number
@@ -41,6 +42,8 @@ export class CanvasOutput {
         this.ctx = this.canvas.getContext('2d');
         this.resetCanvas();
         this.elem = this.canvas;
+        this.selected = 0
+        this.frame = [];
     }
 
     setPhoto(image: HTMLImageElement) {
@@ -56,9 +59,10 @@ export class CanvasOutput {
         x, y, photoSize, photoSize,
         0, 0, this.size, this.size
       );
+      const frame = this.frame[this.selected]
       this.ctx.drawImage(
-        this.frame,
-        0, 0, this.frame.width, this.frame.height,
+        frame,
+        0, 0, frame.width, frame.height,
         0, 0, this.size, this.size
       );
       this._url = undefined;
@@ -70,13 +74,18 @@ export class CanvasOutput {
     loadFrameByUrl(url: string): Promise<{}> {
       return new Promise((fulfill, reject) => {
         this.loaded = false;
-        this.frame = new Image();
-        this.frame.src = '/assets/consciencia-verde/startup-weekend-consciencia-verde-2017.png';
-        this.frame.addEventListener('load', () => {
+        const img = new Image();
+        img.src = url;
+        img.addEventListener('load', () => {
           this.loaded = true;
           fulfill();
         })
+        this.frame.push(img)
       });
+    }
+
+    nextFrame() {
+      this.selected = (this.selected + 1) % this.frame.length;
     }
 
     private resetCanvas() {

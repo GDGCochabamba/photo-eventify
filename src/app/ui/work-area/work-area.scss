@@ -1,7 +1,7 @@
 .gdg-work-area {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0 16px;
 
   & > *:not(:last-child) {
@@ -12,22 +12,37 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin: -8px;
 
     a {
       flex-grow: 1;
+      margin: 8px;
     }
 
-    & > *:not(:first-child) {
-      margin-left: 16px;
+    .frame-button {
+      width: 100%;
     }
-
     &.initial {
+      .frame-button,
       .save-button {
         flex-grow: 0;
         margin-right: -104px;
         display: none;
         opacity: 0;
       }
+    }
+  }
+}
+
+@media screen and (orientation:landscape) {
+  .gdg-work-area {
+    flex-direction: row;
+    .action-area {
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 1;
+      max-width: 280px;
     }
   }
 }

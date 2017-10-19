@@ -1,4 +1,14 @@
 canvas.gdg-canvas-output {
-  width: calc( 100vh - 64px - 16px - 16px - 36px - 16px);
+  width: calc( 100vh - 64px - 16px - 16px - 36px - 16px - 36px );
+  height: calc( 100vh - 64px - 16px - 16px - 36px - 16px - 36px );
   max-width: calc(100vw - 32px);
+  max-height: calc(100vw - 32px);
+}
+
+@media screen and (orientation:landscape) {
+  canvas.gdg-canvas-output {
+    margin-right: 16px;
+    width: calc( 100vh - 64px - 16px);
+    height: calc( 100vh - 64px - 16px);
+  }
 }
