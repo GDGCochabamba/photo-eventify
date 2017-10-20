@@ -1,3 +1,17 @@
+import * as EXIF from 'exif-js';
+// declare var EXIF: any;
+
+function base64ToArrayBuffer (base64) {
+  base64 = base64.replace(/^data\:([^\;]+)\;base64,/gmi, '');
+  var binaryString = atob(base64);
+  var len = binaryString.length;
+  var bytes = new Uint8Array(len);
+  for (var i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes.buffer;
+}
+
 export class CanvasOutput {
     elem: HTMLCanvasElement;
 
@@ -47,6 +61,7 @@ export class CanvasOutput {
     }
 
     setPhoto(image: HTMLImageElement) {
+      let exif = EXIF.readFromBinaryFile(base64ToArrayBuffer(image.src));
       if ( !this.loaded ) {
         return false;
       }
@@ -54,11 +69,50 @@ export class CanvasOutput {
       const photoSize = Math.min(this.photo.width, this.photo.height);
       const x = (this.photo.width - photoSize) / 2;
       const y = (this.photo.height - photoSize) / 2;
+      switch(exif.Orientation){
+        case 2:
+            // horizontal flip
+            this.ctx.translate(this.size, 0);
+            this.ctx.scale(-1, 1);
+            break;
+        case 3:
+            // 180° rotate left
+            this.ctx.translate(this.size, this.size);
+            this.ctx.rotate(Math.PI);
+            break;
+        case 4:
+            // vertical flip
+            this.ctx.translate(0, this.size);
+            this.ctx.scale(1, -1);
+            break;
+        case 5:
+            // vertical flip + 90 rotate right
+            this.ctx.rotate(0.5 * Math.PI);
+            this.ctx.scale(1, -1);
+            break;
+        case 6:
+            // 90° rotate right
+            this.ctx.rotate(0.5 * Math.PI);
+            this.ctx.translate(0, -this.size);
+            break;
+        case 7:
+            // horizontal flip + 90 rotate right
+            this.ctx.rotate(0.5 * Math.PI);
+            this.ctx.translate(this.size, -this.size);
+            this.ctx.scale(-1, 1);
+            break;
+        case 8:
+            // 90° rotate left
+            this.ctx.rotate(-0.5 * Math.PI);
+            this.ctx.translate(-this.size, 0);
+            break;
+      }
       this.ctx.drawImage(
         this.photo,
         x, y, photoSize, photoSize,
         0, 0, this.size, this.size
       );
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
       const frame = this.frame[this.selected]
       this.ctx.drawImage(
         frame,
